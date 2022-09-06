@@ -2,7 +2,7 @@
 
 ------------
 
-> :tw-1f504: Este projeto se baseou nos principios do Git Flow.
+> Este projeto se baseou nos principios do Git Flow.
 
 ------------
 
