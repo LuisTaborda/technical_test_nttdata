@@ -21,14 +21,14 @@ public without sharing class AccountTH extends TriggerHandler{
 	public void beforeInsert() {
         validadeAccountNumber();
         createOppForPartner();
-        createOppForFinalCostumer();
+        createTaskForFinalCostumer();
 	}
     
 	override
 	public void beforeUpdate() {
         validadeAccountNumber();
         createOppForPartner();
-        createOppForFinalCostumer();
+        createTaskForFinalCostumer();
 	}
 
     private void validadeAccountNumber(){
@@ -58,7 +58,7 @@ public without sharing class AccountTH extends TriggerHandler{
         }
     }
     
-    private void createOppForFinalCostumer(){
+    private void createTaskForFinalCostumer(){
         for (Account account : newAccounts) {
             Boolean isFinalCostumer = accountService.isFinalCostumer(account.recordTypeId);
             if(isFinalCostumer){

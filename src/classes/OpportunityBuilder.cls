@@ -1,3 +1,6 @@
+/**
+ * @author Luis Gustavo Taborda - NTT DATA
+ */
 public class OpportunityBuilder {
     
     private Opportunity opp;

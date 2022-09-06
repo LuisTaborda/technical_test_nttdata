@@ -1,3 +1,6 @@
+/**
+ * @author Luis Gustavo Taborda - NTT DATA
+ */
 public class Utils {
 
     public static Boolean validateDocument(String accountNumber){

@@ -1,3 +1,6 @@
+/**
+ * @author Luis Gustavo Taborda - NTT DATA
+ */
 public class TaskBuilder {
     private Task task;
 
@@ -14,7 +17,7 @@ public class TaskBuilder {
         return this;
     }
 
-    public TaskBuilder withWhatId(String whatId){
+    public TaskBuilder withWhatId(Id whatId){
         this.task.WhatId = whatId;
         return this;
     }

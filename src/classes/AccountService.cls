@@ -1,3 +1,6 @@
+/**
+ * @author Luis Gustavo Taborda - NTT DATA
+ */
 public with sharing class AccountService {
 
     private Id partnerRecordTypeId;
