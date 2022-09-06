@@ -1,6 +1,7 @@
 <template>
     <div class="slds-box slds-card">
         <lightning-record-edit-form record-id={recordId} object-api-name="Account">
+            <lightning-messages> </lightning-messages>
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_2-of-2">
                     <lightning-input-field field-name="Name"> </lightning-input-field>
@@ -16,6 +17,6 @@
             
                 <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="Atualizar" label="Atualizar"></lightning-button>
         </div>
-    </lightning-record-edit-form>
-        </div>
+        </lightning-record-edit-form>
+    </div>
 </template>
