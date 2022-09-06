@@ -45,6 +45,7 @@ public without sharing class AccountTH extends TriggerHandler{
     }
 
     private void createOppForPartner(){
+        List<Opportunity> opps = new List<Opportunity>();
         for (Account account : newAccounts) {
             Boolean isPartner = accountService.isPartner(account.recordTypeId);
             if(isPartner){
@@ -53,12 +54,14 @@ public without sharing class AccountTH extends TriggerHandler{
                                 .withStageName('Qualification')
                                 .withCloseDate(date.today().addDays(30))
                                 .build();
-                insert opp;
-            } 
-        }
+                opps.add(opp);
+                } 
+            }
+        insert opps;
     }
     
     private void createTaskForFinalCostumer(){
+        List<Task> tasks = new List<Task>();
         for (Account account : newAccounts) {
             Boolean isFinalCostumer = accountService.isFinalCostumer(account.recordTypeId);
             if(isFinalCostumer){
@@ -68,8 +71,9 @@ public without sharing class AccountTH extends TriggerHandler{
                             .withStatus('Not Started')
                             .withPriority('Normal')
                             .build();
-                insert task;
+                tasks.add(task);
             } 
         }
+        insert tasks;
     }
 }
