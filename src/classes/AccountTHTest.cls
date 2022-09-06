@@ -79,4 +79,22 @@ public with sharing class AccountTHTest {
         System.assertEquals('Qualification', opp.StageName, 'stage name value not expected');
         System.assertEquals(date.today().addDays(30), opp.CloseDate, 'date not expected');
     }
+
+    @isTest
+    public static void givenLotAccountsWhenInsertThenReturningSuccess(){
+        boolean success = true;
+        try{
+            List<Account> accounts = new List<Account>();
+            for(Integer i = 0 ; i < 1000 ; i++){
+                accounts.add(AccountFixtureFactory.newAccount());
+            }
+            Test.startTest();
+            AccountFixtureFactory.createAccounts(accounts);
+            Test.stopTest();
+        }
+        catch (Exception ex){
+            success = false;
+        }
+        System.assert(success);
+    }
 }

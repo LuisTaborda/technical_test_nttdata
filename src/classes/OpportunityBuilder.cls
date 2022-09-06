@@ -27,5 +27,10 @@ public class OpportunityBuilder {
         this.opp.StageName = stageName;
         return this;
     }
+
+    public OpportunityBuilder withAccountId (String accountId){
+        this.opp.AccountId = accountId;
+        return this;
+    }
     
 }

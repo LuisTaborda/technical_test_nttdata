@@ -33,19 +33,17 @@ public without sharing class AccountTH extends TriggerHandler{
 
     private void validadeAccountNumber(){
         for (Account account : newAccounts) {
-
-            if(account.accountNumber == null){
-                throw new DmlException('Necessário inserir número do cliente');
-            }
-
+            if(account.accountNumber == null) return;
+            
             if(!Utils.validateDocument(account.accountNumber)){
                 throw new DmlException('Número do cliente é inválido');
             }
+        
         }
     }
 
     private void createOppForPartner(){
-        List<Opportunity> opps = new List<Opportunity>();
+        List<Opportunity> opportunities = new List<Opportunity>();
         for (Account account : newAccounts) {
             Boolean isPartner = accountService.isPartner(account.recordTypeId);
             if(isPartner){
@@ -53,11 +51,12 @@ public without sharing class AccountTH extends TriggerHandler{
                                 .withName(account.Name + ' - opp Parceiro')
                                 .withStageName('Qualification')
                                 .withCloseDate(date.today().addDays(30))
+                                .withAccountId(account.Id)
                                 .build();
-                opps.add(opp);
+                opportunities.add(opp);
                 } 
             }
-        insert opps;
+        insert opportunities;
     }
     
     private void createTaskForFinalCostumer(){

@@ -65,4 +65,9 @@ public class AccountFixtureFactory {
         insert account;
         return account;
     }
+    
+    public static List<Account> createAccounts(List<Account> accounts){
+        insert accounts;
+        return accounts;
+    }
 }
